@@ -18,6 +18,7 @@ namespace logoturtle {
     let _prevy = 2;
     let _prevpixel = 0;
     let _pen = 1;
+    let _direction = 1; // 1-N 2-E 3-S 4-W
     
     //% blockId=turtlehome
     //% block="goto start"
@@ -29,57 +30,60 @@ namespace logoturtle {
     }
     //% blockId=turtleright
     //% block="turn right"
-    export function right():void{
-
-        if (_pen) {
-            led.plotBrightness(_x,_y,100)
-        } else {
-            led.plotBrightness(_x, _y,_prevpixel*100 )
-        }
-        _x = _x == 4?_x:_x+1;
-        _prevpixel = led.point(_x, _y)?1:0;
-        _prevx = _x;
-        led.plotBrightness(_x, _y, 255);
-
+    export function turnright():void{
+        _direction = _direction+1 > 4 ? 1 : _direction + 1;
     }
     //% blockId=turtleleft
     //% block="turn left"
-    export function left():void{
-        
-        if (_pen) {
-            led.plotBrightness(_x,_y,100)
-        } else {
-            led.plotBrightness(_x, _y,_prevpixel*100 )
-        }
-        _x = _x == 0?_x:_x-1;  
-        _prevpixel = led.point(_x, _y)?1:0;
-        _prevx = _x;
-        led.plotBrightness(_x, _y, 255);
+    export function turnleft():void{
+        _direction = _direction-1 < 1 ? 4 : _direction - 1;
     }
+    
     //% blockId=turtle up
-    //% block="mvoe forward"
+    //% block="move forward"
     export function forward():void{
+        let _incr = 1;
+        if (_direction == 1 || _direction ==4) _incr = -1 
+
         if (_pen) {
             led.plotBrightness(_x,_y,100)
         } else {
             led.plotBrightness(_x, _y,_prevpixel*100 )
         }
-        _y = _y == 0?_y:_y-1;  
-        _prevpixel = led.point(_x, _y)?1:0;
-        _prevy = _y;
+        
+        if (_direction == 2 || _direction == 4){ 
+            _x = _x + _incr 
+            _x = _x > 4 ? 4 : _x < 0 ? 0 : _x
+        }
+        else{
+            _y = _y + _incr
+            _y = _y > 4 ? 4 : _y < 0 ? 0 : _y
+        } 
+
         led.plotBrightness(_x, _y, 255);
     }
-    //% blockId=turtle down
-    //% block="move down"
+
+    //% blockId=Movebackward
+    //% block="move backward"
     export function backward():void{
-         if (_pen) {
+        let _incr = -1;
+        if (_direction == 1 || _direction ==4) _incr = 1 
+
+        if (_pen) {
             led.plotBrightness(_x,_y,100)
         } else {
             led.plotBrightness(_x, _y,_prevpixel*100 )
         }
-        _y = _y == 4?_y:_y+1;  
-        _prevpixel = led.point(_x, _y)?1:0;
-        _prevy = _y;
+        
+        if (_direction == 2 || _direction == 4){ 
+            _x = _x + _incr 
+            _x = _x > 4 ? 4 : _x < 0 ? 0 : _x
+        }
+        else{
+            _y = _y + _incr
+            _y = _y > 4 ? 4 : _y < 0 ? 0 : _y
+        } 
+
         led.plotBrightness(_x, _y, 255);
     }
     //% blockId=turtle pen up
