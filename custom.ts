@@ -14,16 +14,20 @@ namespace logoturtle {
     //% block
     let _x = 2;
     let _y = 2;
+    let _direction = 1; // 1-N 2-E 3-S 4-W
+
+    let _pen = 1; //1-down 0-up
+    
     let _prevx = 2;
     let _prevy = 2;
     let _prevpixel = 0;
-    let _pen = 1;
-    let _direction = 1; // 1-N 2-E 3-S 4-W
     
     //% blockId=turtlehome
     //% block="goto start"
     export function home(): void {
         // Add code here
+        led.plotBrightness(_x, _y,_prevpixel*100 )
+        _x =_y =_prevx =_prevy = 2;
         _prevpixel = led.point(_x,_y)?1:0;
         led.plotBrightness(_x, _y, 255);
 
@@ -33,6 +37,7 @@ namespace logoturtle {
     export function turnright():void{
         _direction = _direction+1 > 4 ? 1 : _direction + 1;
     }
+    
     //% blockId=turtleleft
     //% block="turn left"
     export function turnleft():void{
@@ -59,7 +64,7 @@ namespace logoturtle {
             _y = _y + _incr
             _y = _y > 4 ? 4 : _y < 0 ? 0 : _y
         } 
-
+        _prevpixel = led.point(_x,_y)?1:0;
         led.plotBrightness(_x, _y, 255);
     }
 
@@ -83,14 +88,16 @@ namespace logoturtle {
             _y = _y + _incr
             _y = _y > 4 ? 4 : _y < 0 ? 0 : _y
         } 
-
+        _prevpixel = led.point(_x,_y)?1:0;
         led.plotBrightness(_x, _y, 255);
     }
+
     //% blockId=turtle pen up
     //% block="penUp"
     export function penUp():void {
         _pen = 0;
     }
+
     //% blockId=turtle pen down
     //% block="penDown"
     export function penDown():void {
