@@ -47,8 +47,14 @@ namespace logoturtle {
         _pen = 1;
     }
 
+    /***
+     * 
+     * @param turtleSpeed : Controls the speed the turtle moves
+     * 
+     */
     //% blockId=turtle_speed
-    //% block="speed"
+    //% block="speed %turtleSpeed"
+    //% turtleSpeed.min=0 turtleSpeed.max= 10 x.defl=5
     export function speed(turtleSpeed:number):void {
         _turtleSpeed = turtleSpeed;
     }
