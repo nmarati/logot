@@ -178,13 +178,14 @@ namespace logoturtle {
     //% weight=400
     export function fillScreen():void{
         led.setBrightness(100)
-        images.createImage(`
+        let img = images.createImage(`
             # # # # #
             # # # # #
             # # # # #
             # # # # #
             # # # # #
         `);
+        img.showImage(0);
         home();
     }
 
