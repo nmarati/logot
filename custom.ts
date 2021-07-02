@@ -53,8 +53,8 @@ namespace logoturtle {
      * 
      */
     //% blockId=turtle_speed
-    //% block="speed %turtleSpeed"
-    //% turtleSpeed.min=0 turtleSpeed.max= 10 x.defl=5
+    //% block="speed %turtleSpeed|"
+    //% turtleSpeed.min=1 turtleSpeed.max=10 turtleSpeed.defl=5
     export function speed(turtleSpeed:number):void {
         _turtleSpeed = turtleSpeed;
     }

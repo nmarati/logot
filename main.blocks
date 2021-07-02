@@ -1,1 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="P0FC1f^](dEg?Oo+:G$-" x="0" y="0"/></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="z.Z4)|12L-%F/8E(b+0I" x="0" y="0"><statement name="HANDLER"><block type="turtle_speed" id="A5cZN2+VF:.8m/QCemO}"><value name="turtleSpeed"><shadow type="math_number" id="]Hs.8bbsBgwjc;Uk5A}L"><field name="NUM">0</field></shadow></value></block></statement></block></xml>

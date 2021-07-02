@@ -1,1 +1,1 @@
-
+logoturtle.speed(0)
