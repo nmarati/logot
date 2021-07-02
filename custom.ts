@@ -148,5 +148,45 @@ namespace logoturtle {
         basic.pause(_turtleSpeed*100)
     }
 
+    /**
+     * Erase the pixel at current position
+     */
+    //% blockId=erase
+    //% block="erase"
+    //% weight=500
+    export function erase():void{
+        led.plotBrightness(_x, _y, 0);
+    }
+
+    
+    /**
+     * Clear the screen
+     */
+    //% blockId=clear_screen
+    //% block="clear screen"
+    //% weight=400
+    export function clearScreen():void{
+        basic.clearScreen()
+        home();
+    }
+
+    /**
+     * Fill Screen 
+     */
+    //% blockId=fill_screen
+    //% block="fill screen"
+    //% weight=400
+    export function fillScreen():void{
+        led.setBrightness(100)
+        images.createImage(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+        `);
+        home();
+    }
+
 
 }
