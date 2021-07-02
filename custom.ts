@@ -23,7 +23,9 @@ namespace logoturtle {
     let _prevx = 2;
     let _prevy = 2;
     let _prevpixel = 0;
-    
+    /***
+     * Sets the turtle to home position
+     */
     //% blockId=turtlehome
     //% block="goto start"
     //% weight=1000
@@ -36,13 +38,18 @@ namespace logoturtle {
 
     }
 
+    /***
+     * Turn the pen off
+     */
     //% blockId=turtle_pen_up
     //% block="penUp"
     //% weight=900
     export function penUp():void {
         _pen = 0;
     }
-
+    /***
+     * Turn the pen on, so will write as the turtle moves
+     */
     //% blockId=turtle_pen_down
     //% block="penDown"
     //% weight=890
@@ -51,8 +58,9 @@ namespace logoturtle {
     }
 
     /***
-     * @param turtleSpeed : Controls the speed the turtle moves.
-    */
+     * Set the speed at which the turtle moves, 1 is slow, 10 is fast, default moves at moderate speed
+     * @param turtleSpeed:Controls the speed the turtle moves.
+     */
     //% blockId=turtle_speed
     //% block="speed %turtleSpeed"
     //% turtleSpeed.min=1 turtleSpeed.max=10 turtleSpeed.defl=5
@@ -61,6 +69,9 @@ namespace logoturtle {
         _turtleSpeed = turtleSpeed;
     }
 
+    /***
+     * Turn the turtle right
+     */
     //% blockId=turtleright
     //% block="turn right"
     //% weight=700
@@ -68,6 +79,9 @@ namespace logoturtle {
         _direction = _direction+1 > 4 ? 1 : _direction + 1;
     }
     
+    /***
+     * Turn the turtle left
+     */
     //% blockId=turtleleft
     //% block="turn left"
     //% weight=690
@@ -75,6 +89,9 @@ namespace logoturtle {
         _direction = _direction-1 < 1 ? 4 : _direction - 1;
     }
     
+    /***
+     * Move the turtle forward
+     */
     //% blockId=turtle_move_forward
     //% block="move forward"
     //% weight=650
@@ -101,6 +118,9 @@ namespace logoturtle {
         basic.pause(_turtleSpeed*100)
     }
 
+    /***
+     * Move the turtle backward
+     */
     //% blockId=turtle_move_backward
     //% block="move backward"
     //% weight=600
