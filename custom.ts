@@ -26,6 +26,7 @@ namespace logoturtle {
     
     //% blockId=turtlehome
     //% block="goto start"
+    //% weight=1000
     export function home(): void {
         // Add code here
         led.plotBrightness(_x, _y,_prevpixel*100 )
@@ -37,12 +38,14 @@ namespace logoturtle {
 
     //% blockId=turtle_pen_up
     //% block="penUp"
+    //% weight=900
     export function penUp():void {
         _pen = 0;
     }
 
     //% blockId=turtle_pen_down
     //% block="penDown"
+    //% weight=890
     export function penDown():void {
         _pen = 1;
     }
@@ -55,24 +58,28 @@ namespace logoturtle {
     //% blockId=turtle_speed
     //% block="speed %turtleSpeed|"
     //% turtleSpeed.min=1 turtleSpeed.max=10 turtleSpeed.defl=5
+    //% weight=850
     export function speed(turtleSpeed:number):void {
         _turtleSpeed = turtleSpeed;
     }
 
     //% blockId=turtleright
     //% block="turn right"
+    //% weight=700
     export function turnright():void{
         _direction = _direction+1 > 4 ? 1 : _direction + 1;
     }
     
     //% blockId=turtleleft
     //% block="turn left"
+    //% weight=690
     export function turnleft():void{
         _direction = _direction-1 < 1 ? 4 : _direction - 1;
     }
     
     //% blockId=turtle_move_forward
     //% block="move forward"
+    //% weight=650
     export function forward():void{
         let _incr = 1;
         if (_direction == 1 || _direction ==4) _incr = -1 
@@ -98,6 +105,7 @@ namespace logoturtle {
 
     //% blockId=turtle_move_backward
     //% block="move backward"
+    //% weight=600
     export function backward():void{
         let _incr = -1;
         if (_direction == 1 || _direction ==4) _incr = 1 
