@@ -17,6 +17,8 @@ namespace logoturtle {
     let _direction = 1; // 1-N 2-E 3-S 4-W
 
     let _pen = 1; //1-down 0-up
+
+    let _turtleSpeed = 5;
     
     let _prevx = 2;
     let _prevy = 2;
@@ -43,6 +45,12 @@ namespace logoturtle {
     //% block="penDown"
     export function penDown():void {
         _pen = 1;
+    }
+
+    //% blockId=turtle_speed
+    //% block="speed"
+    export function speed(turtleSpeed:number):void {
+        _turtleSpeed = turtleSpeed;
     }
 
     //% blockId=turtleright
@@ -79,6 +87,7 @@ namespace logoturtle {
         } 
         _prevpixel = led.point(_x,_y)?1:0;
         led.plotBrightness(_x, _y, 255);
+        basic.pause(_turtleSpeed*100)
     }
 
     //% blockId=turtle_move_backward
@@ -103,6 +112,7 @@ namespace logoturtle {
         } 
         _prevpixel = led.point(_x,_y)?1:0;
         led.plotBrightness(_x, _y, 255);
+        basic.pause(_turtleSpeed*100)
     }
 
 
