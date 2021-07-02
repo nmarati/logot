@@ -32,6 +32,19 @@ namespace logoturtle {
         led.plotBrightness(_x, _y, 255);
 
     }
+
+    //% blockId=turtle_pen_up
+    //% block="penUp"
+    export function penUp():void {
+        _pen = 0;
+    }
+
+    //% blockId=turtle_pen_down
+    //% block="penDown"
+    export function penDown():void {
+        _pen = 1;
+    }
+
     //% blockId=turtleright
     //% block="turn right"
     export function turnright():void{
@@ -44,7 +57,7 @@ namespace logoturtle {
         _direction = _direction-1 < 1 ? 4 : _direction - 1;
     }
     
-    //% blockId=turtle up
+    //% blockId=turtle_move_forward
     //% block="move forward"
     export function forward():void{
         let _incr = 1;
@@ -68,7 +81,7 @@ namespace logoturtle {
         led.plotBrightness(_x, _y, 255);
     }
 
-    //% blockId=Movebackward
+    //% blockId=turtle_move_backward
     //% block="move backward"
     export function backward():void{
         let _incr = -1;
@@ -92,16 +105,5 @@ namespace logoturtle {
         led.plotBrightness(_x, _y, 255);
     }
 
-    //% blockId=turtle pen up
-    //% block="penUp"
-    export function penUp():void {
-        _pen = 0;
-    }
-
-    //% blockId=turtle pen down
-    //% block="penDown"
-    export function penDown():void {
-        _pen = 1;
-    }
 
 }
